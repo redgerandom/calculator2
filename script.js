@@ -8,8 +8,34 @@ const divide = (a, b) => b !== 0 ? a / b : 'Error: Division by zero';
 
 
 
-console.log(
-  add(15, 9)
-  , add(15, -9), add(15, 0)
+const display = document.getElementById('display');
+const numberButtons = document.querySelectorAll('.number');
+const clearButton = document.getElementById('clear');
+const equalButton=document.querySelector('.equal');
+const operatorButtons=document.querySelectorAll('.operator'); 
+
+
+numberButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (display.textContent === '0') {
+      display.textContent = button.textContent;
+    } else {
+      display.textContent += button.textContent;
+    }
+  });
+});
+
+
+
+clearButton.addEventListener('click', () => {
+  display.textContent = '0';
+}
 );
 
+operatorButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    if (display.textContent !== '0') {
+      display.textContent += button.textContent;
+    }
+  });
+})
