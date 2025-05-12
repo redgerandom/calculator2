@@ -11,7 +11,7 @@ const divide = (a, b) => b !== 0 ? a / b : 'Error: Division by zero';
 const display = document.getElementById('display');
 const numberButtons = document.querySelectorAll('.number');
 const clearButton = document.getElementById('clear');
-const equalButton=document.querySelector('.equal');
+const equalButton= document.getElementById('equals');
 const operatorButtons=document.querySelectorAll('.operator'); 
 
 
@@ -39,3 +39,10 @@ operatorButtons.forEach(button => {
     }
   });
 })
+equalButton.addEventListener("click", () => {
+  try {
+    display.textContent = eval(display.textContent);
+  } catch {
+    display.textContent = "Error";
+  }
+});
